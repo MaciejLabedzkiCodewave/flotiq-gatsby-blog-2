@@ -5,7 +5,6 @@ import { Helmet } from 'react-helmet';
 import { Header } from 'flotiq-components-react';
 import Layout from '../layouts/layout';
 import BlogPostSidebar from '../sections/BlogPostSidebar';
-import Logo from '../assets/blog-logo.svg';
 import BlogPostContent from '../sections/BlogPostContent';
 import BlogCards from '../sections/BlogCards';
 import Footer from '../components/Footer';
@@ -29,8 +28,7 @@ const BlogPostTemplate = ({ data }) => {
             </Helmet>
             <div className="flex flex-wrap">
                 <div className="flex flex-col md:fixed w-full md:w-[130px]">
-                    <BlogPostSidebar
-                        logo={Logo}
+                    <BlogPostSidebar 
                         additionalClass={['w-full md:basis-auto md:w-[130px]']}
                     />
                 </div>
@@ -78,7 +76,7 @@ export const pageQuery = graphql`
                     localFile {
                         publicURL
                         childImageSharp {
-                            gatsbyImageData(layout: FULL_WIDTH)
+                            gatsbyImageData(layout: FULL_WIDTH, placeholder: NONE)
                         }
                     }
                 }
@@ -102,7 +100,7 @@ export const pageQuery = graphql`
                 localFile {
                     publicURL
                     childImageSharp {
-                        gatsbyImageData(layout: FULL_WIDTH)
+                        gatsbyImageData(layout: FULL_WIDTH, placeholder: NONE)
                     }
                 }
             }

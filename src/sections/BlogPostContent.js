@@ -1,13 +1,12 @@
 import React from 'react';
-import { Content, Header, Image } from 'flotiq-components-react';
+import { Content, Header } from 'flotiq-components-react';
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
-const BlogPostContent = ({ post, date, readingTime, tags, postAuthor, additionalClass }) => (
-    <div className={['', ...additionalClass].join(' ')}>
-        <Image
-            url={post.headerImage[0] && post.headerImage[0].localFile.publicURL}
-            stretched
-            alt={post.title}
-        />
+const BlogPostContent = ({ post, date, readingTime, postAuthor, additionalClass }) => {
+    const image = getImage(post.headerImage[0].localFile)
+
+    return(<div className={['', ...additionalClass].join(' ')}>
+        <GatsbyImage image={image} alt={post.title} />
         <div className="px-5 md:px-10 lg:px-16 py-8">
             <div className="flex flex-wrap items-center justify-start font-light lg:space-x-20">
                 <div className="basis-full lg:basis-auto flex flex-col lg:flex-row flex-wrap
@@ -23,23 +22,6 @@ const BlogPostContent = ({ post, date, readingTime, tags, postAuthor, additional
                     </p>
                     <div />
                 </div>
-                {/* <div className="mt-4 mx-0 md:mt-0 basis-full lg:basis-auto */}
-                {/* flex flex-wrap items-center justify-center lg:justify-end space-x-6 */}
-                {/* text-primary font-normal" */}
-                {/* > */}
-                {/*    <p> */}
-                {/*        tags: */}
-                {/*    </p> */}
-                {/*    {tags && tags.map((tag) => ( */}
-                {/*        <a */}
-                {/*            href="/" */}
-                {/*            className="hover:text-secondary underline" */}
-                {/*            key={tag} */}
-                {/*        > */}
-                {/*            {tag} */}
-                {/*        </a> */}
-                {/*    ))} */}
-                {/* </div> */}
             </div>
             <Header
                 alignement="center"
@@ -74,7 +56,7 @@ const BlogPostContent = ({ post, date, readingTime, tags, postAuthor, additional
                 {postAuthor}
             </div>
         </div>
-    </div>
-);
+    </div>)
+};
 
 export default BlogPostContent;

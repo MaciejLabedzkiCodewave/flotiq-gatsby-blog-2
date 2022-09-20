@@ -59,7 +59,15 @@ module.exports = {
             },
         },
         'gatsby-plugin-image',
-        'gatsby-plugin-sharp',
+        {
+            resolve: 'gatsby-plugin-sharp',
+            options: { 
+              defaults: {
+                quality:100
+              }, 
+              base64Width: 60,
+            },
+          },
         'gatsby-transformer-sharp',
         {
             resolve: 'gatsby-plugin-robots-txt',
@@ -68,7 +76,7 @@ module.exports = {
                 sitemap: 'https://flotiqgatsbyblog2.gatsbyjs.io/sitemap.xml',
                 policy: [{ userAgent: '*', allow: '/' }],
             },
-        },
+        }, 
         {
             resolve: 'gatsby-plugin-manifest',
             options: {
