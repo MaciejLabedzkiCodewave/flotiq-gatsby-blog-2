@@ -1,6 +1,6 @@
 import React from 'react';
 import { Content, Header } from 'flotiq-components-react';
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 const BlogPostContent = ({ post, date, readingTime, postAuthor, additionalClass }) => {
     const image = getImage(post.headerImage[0].localFile)

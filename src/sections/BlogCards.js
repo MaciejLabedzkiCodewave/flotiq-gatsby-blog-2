@@ -9,12 +9,12 @@ const BlogCards = ({ posts }) => (
             <Link to={`/${post.slug}`}>
                 <Card
                     key={post.id}
-                    image={post.headerImage[0] && post.headerImage[0].localFile.publicURL}
-                    tags={['#photo', '#cookig', '#food']}
+                    image={post.headerImage[0] && post.headerImage[0].localFile}
                     title={post.title}
                     excerpt={post.excerpt}
                     date={moment(post.flotiqInternal.createdAt).format('Do MMMM yyyy')}
                     readingTime="7 min"
+                    // tags={['#photo', '#cookig', '#food']}
                 />
             </Link>
         ))}
