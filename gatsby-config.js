@@ -65,7 +65,7 @@ module.exports = {
               defaults: {
                 quality:80
               }, 
-              base64Width: 60,
+              base64Width: 20,
             },
           },
         'gatsby-transformer-sharp',

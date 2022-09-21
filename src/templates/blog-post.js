@@ -16,7 +16,6 @@ const nextArticleHeaderText = 'Next article to read:';
 
 const BlogPostTemplate = ({ data }) => {
     const post = data.blogpost;
-    const posts = data.allBlogpost.nodes;
     return (
         <Layout additionalClass={['bg-light-gray']}>
             <Helmet>
@@ -76,7 +75,7 @@ export const pageQuery = graphql`
                     localFile {
                         publicURL
                         childImageSharp {
-                            gatsbyImageData(layout: FULL_WIDTH, placeholder: NONE)
+                            gatsbyImageData(  width: 700, placeholder: NONE)
                         }
                     }
                 }
