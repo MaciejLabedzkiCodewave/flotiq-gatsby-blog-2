@@ -8,7 +8,7 @@ const BlogCards = ({ posts }) => (
         {posts.map((post) => (
             <Link to={`/${post.slug}`} key={post.id}>
                 <Card
-                    image={post.headerImage[0] && post.headerImage[0].localFile}
+                    image={post.coverImage[0] && post.coverImage[0].localFile}
                     title={post.title}
                     excerpt={post.excerpt}
                     date={moment(post.flotiqInternal.createdAt).format('Do MMMM yyyy')}

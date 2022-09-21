@@ -188,5 +188,11 @@
       "type": "internal",
       "dataUrl": "/api/v1/content/_media/_media-efbbdb2f-4df3-47c2-9f71-52c6d347fdc9"
     }
+  ],
+  "coverImage": [
+    {
+      "type": "internal",
+      "dataUrl": "/api/v1/content/_media/_media-efbbdb2f-4df3-47c2-9f71-52c6d347fdc9-cover"
+    }
   ]
 }

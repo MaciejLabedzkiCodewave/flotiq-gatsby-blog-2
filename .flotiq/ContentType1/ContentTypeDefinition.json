@@ -65,6 +65,13 @@
               "$ref": "#/components/schemas/DataSource"
             },
             "minItems": 0
+          },
+          "coverImage": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DataSource"
+            },
+            "minItems": 0
           }
         }
       }
@@ -83,7 +90,8 @@
       "slug",
       "excerpt",
       "content",
-      "headerImage"
+      "headerImage",
+      "coverImage"
     ],
     "propertiesConfig": {
       "slug": {
@@ -113,6 +121,15 @@
       },
       "headerImage": {
         "label": "Header image",
+        "unique": false,
+        "helpText": "",
+        "inputType": "datasource",
+        "validation": {
+          "relationContenttype": "_media"
+        }
+      },
+      "coverImage": {
+        "label": "Cover image",
         "unique": false,
         "helpText": "",
         "inputType": "datasource",

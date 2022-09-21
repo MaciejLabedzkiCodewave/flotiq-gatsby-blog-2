@@ -54,7 +54,7 @@ export const pageQuery = graphql`
         }
         allBlogpost(sort: {fields: flotiqInternal___createdAt, order: DESC}, limit: $limit, skip: $skip,) {
             nodes {
-                headerImage {
+                coverImage {
                     extension
                     url
                     width

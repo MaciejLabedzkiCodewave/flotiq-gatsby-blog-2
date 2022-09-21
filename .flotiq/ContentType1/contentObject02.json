@@ -29,5 +29,11 @@
       "type": "internal",
       "dataUrl": "/api/v1/content/_media/_media-7a279806-381a-4043-b9f8-b257df70e303"
     }
+  ],
+  "coverImage": [
+    {
+      "type": "internal",
+      "dataUrl": "/api/v1/content/_media/_media-7a279806-381a-4043-b9f8-b257df70e303-cover"
+    }
   ]
 }
