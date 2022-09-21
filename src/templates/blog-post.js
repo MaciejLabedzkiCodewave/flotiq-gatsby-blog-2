@@ -1,16 +1,15 @@
-import React, { lazy, Suspense } from 'react';
+import React from 'react';
 import { graphql } from 'gatsby';
 import moment from 'moment';
 import { Helmet } from 'react-helmet';
 import { Header } from 'flotiq-components-react';
+import loadable from '@loadable/component'
 
-const Footer = lazy(() => import('../components/Footer'));
-const BlogCards = lazy(() => import('../sections/BlogCards'));
-const BlogPostContent = lazy(() => import('../sections/BlogPostContent'));
-const BlogPostSidebar = lazy(() => import('../sections/BlogPostSidebar'));
-const Layout = lazy(() => import('../layouts/layout'));
-
-const renderLoader = () => <p>Loading</p>;
+const Footer = loadable(() => import('../components/Footer'));
+const BlogCards = loadable(() => import('../sections/BlogCards'));
+const BlogPostContent = loadable(() => import('../sections/BlogPostContent'));
+const BlogPostSidebar = loadable(() => import('../sections/BlogPostSidebar'));
+const Layout = loadable(() => import('../layouts/layout'));
 
 const readingTime = '7 min';
 const tags = ['#photo', '#cookig', '#food'];
@@ -21,8 +20,7 @@ const BlogPostTemplate = ({ data }) => {
     const post = data.blogpost;
     const posts = data.allBlogpost.nodes;
 
-    return (
-        <Suspense fallback={renderLoader()}>
+    return ( 
             <Layout additionalClass={['bg-light-gray']}>
                 <Helmet>
                     <title>{post.title}</title>
@@ -60,8 +58,7 @@ const BlogPostTemplate = ({ data }) => {
                     </div>
                 </div>
                 <Footer />
-            </Layout>
-        </Suspense>
+            </Layout> 
     );
 };
 
