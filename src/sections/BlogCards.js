@@ -14,7 +14,7 @@ const BlogCards = ({ posts }) => (
                     excerpt={post.excerpt}
                     date={moment(post.flotiqInternal.createdAt).format('Do MMMM yyyy')}
                     readingTime="7 min"
-                    // tags={['#photo', '#cookig', '#food']}
+                    tags={[]} // Example: ['#photo', '#cookig', '#food']
                 />
             </Link>
         ))}
