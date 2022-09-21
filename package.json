@@ -19,7 +19,6 @@
     "@fontsource/lato": "^4.5.1",
     "@headlessui/react": "^1.4.2",
     "@heroicons/react": "^1.0.5",
-    "@loadable/component": "^5.15.2",
     "@popperjs/core": "^2.11.0",
     "@tailwindcss/line-clamp": "^0.3.1",
     "@tailwindcss/typography": "^0.5.2",

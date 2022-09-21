@@ -3,13 +3,11 @@ import { graphql } from 'gatsby';
 import moment from 'moment';
 import { Helmet } from 'react-helmet';
 import { Header } from 'flotiq-components-react';
-import loadable from '@loadable/component'
-
-const Footer = loadable(() => import('../components/Footer'));
-const BlogCards = loadable(() => import('../sections/BlogCards'));
-const BlogPostContent = loadable(() => import('../sections/BlogPostContent'));
-const BlogPostSidebar = loadable(() => import('../sections/BlogPostSidebar'));
-const Layout = loadable(() => import('../layouts/layout'));
+import Layout from '../layouts/layout';
+import BlogPostSidebar from '../sections/BlogPostSidebar';
+import BlogPostContent from '../sections/BlogPostContent';
+import BlogCards from '../sections/BlogCards';
+import Footer from '../components/Footer';
 
 const readingTime = '7 min';
 const tags = ['#photo', '#cookig', '#food'];
@@ -19,46 +17,45 @@ const nextArticleHeaderText = 'Next article to read:';
 const BlogPostTemplate = ({ data }) => {
     const post = data.blogpost;
     const posts = data.allBlogpost.nodes;
-
-    return ( 
-            <Layout additionalClass={['bg-light-gray']}>
-                <Helmet>
-                    <title>{post.title}</title>
-                    <meta
-                        name="description"
-                        content={post.excerpt}
+    return (
+        <Layout additionalClass={['bg-light-gray']}>
+            <Helmet>
+                <title>{post.title}</title>
+                <meta
+                    name="description"
+                    content={post.excerpt}
+                />
+            </Helmet>
+            <div className="flex flex-wrap">
+                <div className="flex flex-col md:fixed w-full md:w-[130px]">
+                    <BlogPostSidebar 
+                        additionalClass={['w-full md:basis-auto md:w-[130px]']}
                     />
-                </Helmet>
-                <div className="flex flex-wrap">
-                    <div className="flex flex-col md:fixed w-full md:w-[130px]">
-                        <BlogPostSidebar 
-                            additionalClass={['w-full md:basis-auto md:w-[130px]']}
-                        />
-                    </div>
-                    <div className="basis-full md:basis-auto md:pl-[130px]">
-                        <BlogPostContent
-                            post={post}
-                            date={moment(post.flotiqInternal.createdAt).format(' Do MMMM yyyy')}
-                            readingTime={readingTime}
-                            tags={tags}
-                            postAuthor={postAuthor}
-                            additionalClass={['']}
-                        />
-                        <div className="px-5 md:px-10 lg:px-16 py-8">
-                            <Header
-                                level={2}
-                                additionalClasses={['mb-5 uppercase !text-2xl md:!text-3xl']}
-                            >
-                                {nextArticleHeaderText}
-                            </Header>
-                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-                                <BlogCards posts={posts} />
-                            </div>
+                </div>
+                <div className="basis-full md:basis-auto md:pl-[130px]">
+                    <BlogPostContent
+                        post={post}
+                        date={moment(post.flotiqInternal.createdAt).format(' Do MMMM yyyy')}
+                        readingTime={readingTime}
+                        tags={tags}
+                        postAuthor={postAuthor}
+                        additionalClass={['']}
+                    />
+                    <div className="px-5 md:px-10 lg:px-16 py-8">
+                        <Header
+                            level={2}
+                            additionalClasses={['mb-5 uppercase !text-2xl md:!text-3xl']}
+                        >
+                            {nextArticleHeaderText}
+                        </Header>
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+                            <BlogCards posts={posts} />
                         </div>
                     </div>
                 </div>
-                <Footer />
-            </Layout> 
+            </div>
+            <Footer />
+        </Layout>
     );
 };
 

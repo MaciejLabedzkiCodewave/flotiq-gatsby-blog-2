@@ -1,17 +1,14 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { graphql } from 'gatsby';
-import { Pagination } from 'flotiq-components-react'; 
-import loadable from '@loadable/component'
-
-const Layout = loadable(() => import('../layouts/layout'));
-const HomepageSidebar = loadable(() => import('../sections/HomepageSidebar'));
-const Footer = loadable(() => import('../components/Footer'));
-const BlogCards = loadable(() => import('../sections/BlogCards'));
+import { Pagination } from 'flotiq-components-react';
+import Layout from '../layouts/layout';
+import HomepageSidebar from '../sections/HomepageSidebar';
+import Footer from '../components/Footer';
+import BlogCards from '../sections/BlogCards';
 
 const IndexPage = ({ data, pageContext }) => {
     const posts = data.allBlogpost.nodes;
-
     return (
         <Layout additionalClass={['']}>
             <Helmet>
