@@ -16,6 +16,7 @@ const nextArticleHeaderText = 'Next article to read:';
 
 const BlogPostTemplate = ({ data }) => {
     const post = data.blogpost;
+    const posts = data.allBlogpost.nodes;
     return (
         <Layout additionalClass={['bg-light-gray']}>
             <Helmet>
