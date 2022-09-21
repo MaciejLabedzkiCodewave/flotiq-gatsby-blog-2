@@ -100,7 +100,7 @@ export const pageQuery = graphql`
                 localFile {
                     publicURL
                     childImageSharp {
-                        gatsbyImageData(layout: FULL_WIDTH, placeholder: NONE)
+                        gatsbyImageData(layout: FULL_WIDTH,placeholder: NONE)
                     }
                 }
             }
@@ -109,6 +109,7 @@ export const pageQuery = graphql`
             }
             content {
                 blocks {
+                    id
                     data {
                         alignment
                         anchor
@@ -138,7 +139,6 @@ export const pageQuery = graphql`
                         }
                         level
                         message
-                        stretched
                         style
                         text
                         title

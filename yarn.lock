@@ -5139,10 +5139,10 @@ flatted@^3.1.0:
   resolved "https://registry.yarnpkg.com/flatted/-/flatted-3.2.5.tgz#76c8584f4fc843db64702a6bd04ab7a8bd666da3"
   integrity sha512-WIWGi2L3DyTUvUrwRKgGi9TwxQMUEqPOPQBVi71R96jZXJdFskXEmf54BoZaS1kknGODoIGASGEzBUYdyMCBJg==
 
-flotiq-components-react@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/flotiq-components-react/-/flotiq-components-react-1.0.0.tgz#768f2ff3996820311b278e522eff2c75f78b7370"
-  integrity sha512-/llhU4IVkLX4ha5jCxAJLvsad/s5BTpRGJgragHDo8Yiz+LfP9ECAtmRgbXvKGuIzpJsRfLrsBrinF3w/u5LFQ==
+flotiq-components-react@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/flotiq-components-react/-/flotiq-components-react-1.1.1.tgz#44baf121be29c1b67937b340edececa1c07649ca"
+  integrity sha512-R5taEpye8nBln48NeTHj49zRira8ajJCguqMx+AZl/SDgArGM7zDFE4N8QyIuhPM/I7R5r2d2UEfhdhM7lyMsg==
 
 follow-redirects@^1.0.0, follow-redirects@^1.14.0:
   version "1.14.9"
@@ -5392,14 +5392,6 @@ gatsby-page-utils@^2.8.0:
     lodash "^4.17.21"
     micromatch "^4.0.4"
 
-gatsby-plugin-google-gtag@^4.12.1:
-  version "4.12.1"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-google-gtag/-/gatsby-plugin-google-gtag-4.12.1.tgz#2e9ffa3aca3a5df26a95408e4ed5898003bfd089"
-  integrity sha512-dYf5zC+FPekohgXMnJYTkjz9J/IC3R3eHR6xjgLCEsMUxw7s0AApZxq7IUyCTTioGvLi3k/NPS9sBob7/60n9Q==
-  dependencies:
-    "@babel/runtime" "^7.15.4"
-    minimatch "^3.1.2"
-    
 gatsby-plugin-gatsby-cloud@^4.13.0:
   version "4.13.0"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-gatsby-cloud/-/gatsby-plugin-gatsby-cloud-4.13.0.tgz#55666589923aa835875673d2c170189dfe71de41"
@@ -5414,6 +5406,14 @@ gatsby-plugin-gatsby-cloud@^4.13.0:
     kebab-hash "^0.1.2"
     lodash "^4.17.21"
     webpack-assets-manifest "^5.1.0"
+
+gatsby-plugin-google-gtag@^4.12.1:
+  version "4.12.1"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-google-gtag/-/gatsby-plugin-google-gtag-4.12.1.tgz#2e9ffa3aca3a5df26a95408e4ed5898003bfd089"
+  integrity sha512-dYf5zC+FPekohgXMnJYTkjz9J/IC3R3eHR6xjgLCEsMUxw7s0AApZxq7IUyCTTioGvLi3k/NPS9sBob7/60n9Q==
+  dependencies:
+    "@babel/runtime" "^7.15.4"
+    minimatch "^3.1.2"
 
 gatsby-plugin-image@^2.4.0:
   version "2.8.0"

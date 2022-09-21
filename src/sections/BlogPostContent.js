@@ -3,60 +3,62 @@ import { Content, Header } from 'flotiq-components-react';
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 const BlogPostContent = ({ post, date, readingTime, postAuthor, additionalClass }) => {
-    const image = getImage(post.headerImage[0].localFile)
+    const image = getImage(post.headerImage[0].localFile);
 
-    return(<div className={['', ...additionalClass].join(' ')}>
-        <GatsbyImage image={image} alt={post.title} />
-        <div className="px-5 md:px-10 lg:px-16 py-8">
-            <div className="flex flex-wrap items-center justify-start font-light lg:space-x-20">
-                <div className="basis-full lg:basis-auto flex flex-col lg:flex-row flex-wrap
-                    items-center justify-center lg:justify-start lg:space-x-8 mb-5 lg:mb-0"
+    return (
+        <div className={['', ...additionalClass].join(' ')}>
+            <GatsbyImage image={image} alt={post.title} />
+            <div className="px-5 md:px-10 lg:px-16 py-8">
+                <div className="flex flex-wrap items-center justify-start font-light lg:space-x-20">
+                    <div className="basis-full lg:basis-auto flex flex-col lg:flex-row flex-wrap
+                        items-center justify-center lg:justify-start lg:space-x-8 mb-5 lg:mb-0"
+                    >
+                        <p>
+                            {date}
+                        </p>
+                        <p>
+                            {readingTime}
+                            {' '}
+                            read
+                        </p>
+                        <div />
+                    </div>
+                </div>
+                <Header
+                    alignement="center"
+                    additionalClasses={['pt-10 pb-10 uppercase text-center lg:text-left']}
                 >
-                    <p>
-                        {date}
-                    </p>
-                    <p>
-                        {readingTime}
-                        {' '}
-                        read
-                    </p>
-                    <div />
+                    {post.title}
+                </Header>
+
+                <Content
+                    blocks={post.content.blocks}
+                    additionalClasses={['text-sm md:text-lg']}
+                    fileProps={{
+                        audioProps: { additionalClasses: ['px-6 md:px-12 w-full md:w-3/5 mx-auto'] },
+                        imageProps: {
+                            additionalClasses: ['w-full md:w-9/12 m-auto'],
+                            rounded: '3xl',
+                            captionAdditionalClasses: ['w-full md:w-9/12 m-auto'],
+                        },
+                    }}
+                    quoteProps={
+                        {
+                            variant: 'dark',
+                            additionalClasses: ['px-12 md:px-28 py-4'],
+                            captionAdditionalClasses: ['bg-primary px-8 py-1.5 opacity-100 not-italic font-semibold'],
+                        }
+                    }
+                    paragraphProps={{ additionalClasses: ['font-light'] }}
+                />
+                <div className="font-semibold mt-10 pb-10 border-b-2 border-gray/40">
+                    Author:
+                    {' '}
+                    {postAuthor}
                 </div>
             </div>
-            <Header
-                alignement="center"
-                additionalClasses={['pt-10 pb-10 uppercase text-center lg:text-left']}
-            >
-                {post.title}
-            </Header>
-
-            <Content
-                blocks={post.content.blocks}
-                additionalClasses={['text-sm md:text-lg']}
-                fileProps={{
-                    audioProps: { additionalClasses: ['px-6 md:px-12 w-full md:w-3/5 mx-auto'] },
-                    imageProps: {
-                        additionalClasses: ['w-full md:w-9/12 m-auto'],
-                        rounded: '3xl',
-                        captionAdditionalClasses: ['w-full md:w-9/12 m-auto'],
-                    },
-                }}
-                quoteProps={
-                    {
-                        variant: 'dark',
-                        additionalClasses: ['px-12 md:px-28 py-4'],
-                        captionAdditionalClasses: ['bg-primary px-8 py-1.5 opacity-100 not-italic font-semibold'],
-                    }
-                }
-                paragraphProps={{ additionalClasses: ['font-light'] }}
-            />
-            <div className="font-semibold mt-10 pb-10 border-b-2 border-gray/40">
-                Author:
-                {' '}
-                {postAuthor}
-            </div>
         </div>
-    </div>)
+    )
 };
 
 export default BlogPostContent;
