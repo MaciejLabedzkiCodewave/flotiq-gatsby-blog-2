@@ -1,5 +1,6 @@
 import React from 'react';
 import { PoweredByFlotiq } from 'flotiq-components-react';
+const pjson = require('../../package.json');
 
 const Footer = ({ additionalClass = [] }) => (
     <footer className={['flex justify-center w-full', ...additionalClass].join(' ')}>
@@ -12,6 +13,8 @@ const Footer = ({ additionalClass = [] }) => (
                 Copyright &copy; Flotiq
                 {' '}
                 {new Date().getFullYear()}
+                {' '}
+                v.{pjson.version}
             </p>
         </div>
     </footer>
