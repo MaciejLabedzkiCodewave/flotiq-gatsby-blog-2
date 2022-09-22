@@ -18,7 +18,7 @@ const CustomCard = ({ title, excerpt, date, readingTime, tags, image }) => {
                     'flex flex-col items-start justify-between order-2 lg:order-1 px-5 pt-10 pb-5',
                 ]}
             >
-                <div className="flex flex-wrap justify-start text-sm font-light mb-3 space-x-5 hide">
+                <div className="flex flex-wrap justify-start text-sm font-light mb-3 space-x-5">
                    {tags && tags.map((tag) => (
                        <Link
                            to="/"

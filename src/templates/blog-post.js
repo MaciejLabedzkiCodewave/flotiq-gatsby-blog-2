@@ -76,7 +76,7 @@ export const pageQuery = graphql`
                     localFile {
                         publicURL
                         childImageSharp {
-                            gatsbyImageData(  width: 700, placeholder: NONE)
+                            gatsbyImageData(layout: FULL_WIDTH, placeholder: NONE)
                         }
                     }
                 }
@@ -100,7 +100,7 @@ export const pageQuery = graphql`
                 localFile {
                     publicURL
                     childImageSharp {
-                        gatsbyImageData(layout: FULL_WIDTH,placeholder: NONE)
+                        gatsbyImageData(layout: FULL_WIDTH, placeholder: NONE)
                     }
                 }
             }
