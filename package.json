@@ -2,7 +2,7 @@
   "name": "flotiq-gatsby-blog-2",
   "private": true,
   "description": "A blog starter for Gatsby",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "license": "MIT",
   "author": "Flotiq team <helo@flotiq.com> (https://flotiq.com/)",
   "scripts": {
