@@ -1,6 +1,6 @@
 import React from 'react';
 import { PoweredByFlotiq } from 'flotiq-components-react';
-const pjson = require('../../package.json');
+import pjson from'../../package.json';
 
 const Footer = ({ additionalClass = [] }) => (
     <footer className={['flex justify-center w-full', ...additionalClass].join(' ')}>

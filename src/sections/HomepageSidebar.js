@@ -2,7 +2,7 @@ import React from 'react';
 import { StaticImage } from "gatsby-plugin-image";
 import { Button, Header, Paragraph, PoweredByFlotiq } from 'flotiq-components-react';
 import SocialIcons from '../components/SocialIcons';
-const pjson = require('../../package.json');
+import pjson from'../../package.json';
 
 const HomepageSidebar = ({
     headerText1, headerText2, headerText3, subheaderText, paragraphText, buttonLabel,
@@ -54,7 +54,7 @@ const HomepageSidebar = ({
                     {' '}
                     {new Date().getFullYear()}
                     {' '}
-                    v.{pjson.version}
+                    v. {pjson.version}
                 </p>
             </div>
 
