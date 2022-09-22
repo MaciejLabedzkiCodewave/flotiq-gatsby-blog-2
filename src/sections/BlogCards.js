@@ -6,7 +6,7 @@ import Card from '../components/Card';
 const BlogCards = ({ posts }) => (
     <>
         {posts.map((post) => (
-            <Link to={`/${post.slug}`} key={post.id}>
+            <Link to={`/${post.slug}/`} key={post.id}>
                 <Card
                     image={post.coverImage[0] && post.coverImage[0].localFile}
                     title={post.title}
