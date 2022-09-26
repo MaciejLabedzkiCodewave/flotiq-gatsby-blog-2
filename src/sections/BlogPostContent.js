@@ -1,85 +1,70 @@
 import React from 'react';
 import { Header } from 'flotiq-components-react';
-import { GatsbyImage, getImage, getSrc, StaticImage } from "gatsby-plugin-image";
-import { Content } from 'flotiq-components-react-replace';
-// import { buildFluidImageData } from '@imgix/gatsby-transform-url';
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { Content } from 'flotiq-components-react-replace'; 
 
-const BlogPostContent = ({ post, date, readingTime, postAuthor, additionalClass , postFile}) =>  {
-    // const contentImage = post.content.blocks;
-    // const getImagePosition = contentImage.findIndex(x => x.type === 'image' && x.data.url.indexOf('jpg') > -1);
-    // const getImagePositionUrl = contentImage[getImagePosition].url;
-    // const srcAAA = getSrc(post.headerImage[0].localFile)
-    // console.log( contentImage)
- 
- 
-    return(
-        <div className={['', ...additionalClass].join(' ')}>
-            <GatsbyImage image={getImage(post.headerImage[0].localFile)} alt={post.title} />
-            <div className="px-5 md:px-10 lg:px-16 py-8">
-                <div className="flex flex-wrap items-center justify-start font-light lg:space-x-20">
-                    <div className="basis-full lg:basis-auto flex flex-col lg:flex-row flex-wrap
-                        items-center justify-center lg:justify-start lg:space-x-8 mb-5 lg:mb-0"
-                    >
-                        <p>
-                            {date}
-                        </p>
-                        <p>
-                            {readingTime}
-                            {' '}
-                            read
-                        </p>
-                        <div />
-                    </div>
-                </div>
-                <Header
-                    alignement="center"
-                    additionalClasses={['pt-10 pb-10 uppercase text-center lg:text-left']}
+const BlogPostContent = ({ post, date, readingTime, postAuthor, additionalClass , postFile}) => (
+    <div className={['', ...additionalClass].join(' ')}>
+        <GatsbyImage image={getImage(post.headerImage[0].localFile)} alt={post.title} />
+        <div className="px-5 md:px-10 lg:px-16 py-8">
+            <div className="flex flex-wrap items-center justify-start font-light lg:space-x-20">
+                <div className="basis-full lg:basis-auto flex flex-col lg:flex-row flex-wrap
+                    items-center justify-center lg:justify-start lg:space-x-8 mb-5 lg:mb-0"
                 >
-                    {post.title}
-                </Header>
-
-                <Content
-                    blocks={post.content.blocks}
-                    additionalClasses={['text-sm md:text-lg']}
-                    fileProps={{
-                        audioProps: { additionalClasses: ['px-6 md:px-12 w-full md:w-3/5 mx-auto'] },
-                        imageProps: {
-                            additionalClasses: ['w-full md:w-9/12 m-auto'],
-                            rounded: '3xl',
-                            captionAdditionalClasses: ['w-full md:w-9/12 m-auto'],
-                        },
-                        imageReplace: function(url){ 
-                            return (
-                                <>
-                                    <GatsbyImage image={getImage(postFile.childImageSharp.gatsbyImageData)} className="rounded-3xl flex w-full md:w-9/12 m-auto" alt={url} />
-                                    <p className="pt-2 opacity-70 italic w-full md:w-9/12 m-auto">Example image</p>
-                                </>
-                                )
-                            }   
-                        // imageReplace: "AAA"
-                        // imageReplace: function(url){return <meta property="og:image" content={getSrc(post.headerImage[0].localFile)} />}
-                        // imageReplace: function(url){return <StaticImage src={getImagePositionUrl} />}
-                        // imageReplace: function(url){ return <img src={url} className="w-full md:w-9/12 m-auto"/>},
-                        // imageReplace: function(url){ return <GatsbyImage image={getImage(post.headerImage[0].localFile)} alt={url} />}
-                    }}
-                    quoteProps={
-                        {
-                            variant: 'dark',
-                            additionalClasses: ['px-12 md:px-28 py-4'],
-                            captionAdditionalClasses: ['bg-primary px-8 py-1.5 opacity-100 not-italic font-semibold'],
-                        }
-                    }
-                    paragraphProps={{ additionalClasses: ['font-light'] }}
-                />
-                <div className="font-semibold mt-10 pb-10 border-b-2 border-gray/40">
-                    Author:
-                    {' '}
-                    {postAuthor}
+                    <p>
+                        {date}
+                    </p>
+                    <p>
+                        {readingTime}
+                        {' '}
+                        read
+                    </p>
+                    <div />
                 </div>
             </div>
+            <Header
+                alignement="center"
+                additionalClasses={['pt-10 pb-10 uppercase text-center lg:text-left']}
+            >
+                {post.title}
+            </Header>
+
+            <Content
+                blocks={post.content.blocks}
+                additionalClasses={['text-sm md:text-lg']}
+                fileProps={{
+                    audioProps: { additionalClasses: ['px-6 md:px-12 w-full md:w-3/5 mx-auto'] },
+                    imageProps: {
+                        additionalClasses: ['w-full md:w-9/12 m-auto'],
+                        rounded: '3xl',
+                        captionAdditionalClasses: ['w-full md:w-9/12 m-auto'],
+                    },
+                    imageReplace: function(url){
+                        return (
+                            <>
+                                <GatsbyImage image={getImage(postFile.childImageSharp.gatsbyImageData)} className="rounded-3xl flex w-full md:w-9/12 m-auto" alt={url} />
+                                <p className="pt-2 opacity-70 italic w-full md:w-9/12 m-auto">Example image</p>
+                            </>
+                            )
+                        }
+                }}
+                quoteProps={
+                    {
+                        variant: 'dark',
+                        additionalClasses: ['px-12 md:px-28 py-4'],
+                        captionAdditionalClasses: ['bg-primary px-8 py-1.5 opacity-100 not-italic font-semibold'],
+                    }
+                }
+                paragraphProps={{ additionalClasses: ['font-light'] }}
+            />
+            <div className="font-semibold mt-10 pb-10 border-b-2 border-gray/40">
+                Author:
+                {' '}
+                {postAuthor}
+            </div>
         </div>
-    )
-}
+    </div>
+)
  
 
 export default BlogPostContent;
