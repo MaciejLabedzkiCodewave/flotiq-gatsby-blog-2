@@ -5358,10 +5358,6 @@
   "resolved" "https://registry.npmjs.org/flatted/-/flatted-3.2.5.tgz"
   "version" "3.2.5"
 
-"flotiq-components-react-replace@github:flotiq/flotiq-components-react#feature/maciejl/21225-content-image-replace":
-  "resolved" "git+ssh://git@github.com/flotiq/flotiq-components-react.git#227fbc7ffb743e9c01b69b909ce910b6e19fe96e"
-  "version" "1.1.1"
-
 "flotiq-components-react@^1.1.1":
   "integrity" "sha512-R5taEpye8nBln48NeTHj49zRira8ajJCguqMx+AZl/SDgArGM7zDFE4N8QyIuhPM/I7R5r2d2UEfhdhM7lyMsg=="
   "resolved" "https://registry.npmjs.org/flotiq-components-react/-/flotiq-components-react-1.1.1.tgz"

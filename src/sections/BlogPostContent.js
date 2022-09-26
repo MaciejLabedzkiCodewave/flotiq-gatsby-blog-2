@@ -1,7 +1,6 @@
 import React from 'react';
-import { Header } from 'flotiq-components-react';
+import { Header, Content } from 'flotiq-components-react';
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import { Content } from 'flotiq-components-react-replace'; 
 
 const BlogPostContent = ({ post, date, readingTime, postAuthor, additionalClass , postFile}) => (
     <div className={['', ...additionalClass].join(' ')}>
