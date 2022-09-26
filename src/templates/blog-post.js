@@ -17,6 +17,7 @@ const nextArticleHeaderText = 'Next article to read:';
 const BlogPostTemplate = ({ data }) => {
     const post = data.blogpost;
     const posts = data.allBlogpost.nodes;
+    const postFile = data.file;
     return (
         <Layout additionalClass={['bg-light-gray']}>
             <Helmet>
@@ -40,6 +41,7 @@ const BlogPostTemplate = ({ data }) => {
                         tags={tags}
                         postAuthor={postAuthor}
                         additionalClass={['']}
+                        postFile={postFile}
                     />
                     <div className="px-5 md:px-10 lg:px-16 py-8">
                         <Header
@@ -49,7 +51,7 @@ const BlogPostTemplate = ({ data }) => {
                             {nextArticleHeaderText}
                         </Header>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-                            <BlogCards posts={posts} />
+                            <BlogCards posts={posts}   />
                         </div>
                     </div>
                 </div>
@@ -87,6 +89,11 @@ export const pageQuery = graphql`
                 flotiqInternal {
                     createdAt
                 }
+            }
+        }
+        file {
+            childImageSharp {
+              gatsbyImageData
             }
         }
         blogpost( slug: { eq: $slug } ) {

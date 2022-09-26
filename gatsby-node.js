@@ -1,7 +1,9 @@
 const path = require('path');
+const { createRemoteFileNode } = require(`gatsby-source-filesystem`);
 
-exports.createPages = async ({ graphql, actions }) => {
+exports.createPages = async ({ graphql, actions , getCache  }) => {
     const { createPage } = actions;
+    const { createNode, createNodeField } = actions;
 
     const blogPost = path.resolve('./src/templates/blog-post.js');
     const result = await graphql(`
@@ -14,8 +16,18 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
-`);
+    `);
 
+    // const fileNode = await createRemoteFileNode({
+    //   url: "https://api.flotiq.com/image/0x0/_media-686eef8b-62c1-4734-9630-8bd15e7731f7.jpg",
+    //   // parentNodeId: edge.node[locale].id.toString(),
+    //   parentNodeId: "blogpost-2",
+    //   getCache,
+    //   createNode,
+    //   createNodeId: id => `projectPhoto-${photo.id}`,,
+    // });
+
+  
     if (result.errors) {
         throw result.errors;
     }
@@ -54,3 +66,33 @@ exports.createPages = async ({ graphql, actions }) => {
         });
     });
 };
+
+exports.onCreateNode = async ({
+  node,
+  actions: { createNode, createNodeField },
+  createNodeId,
+  getCache,
+}) => {
+  // For direct Blogpost nodes example
+  if (
+    node.internal.type === "Blogpost" &&
+    node.content.blocks &&
+    node.content.blocks[8] &&
+    node.content.blocks[8].data &&
+    node.content.blocks[8].data.url !== null
+  ) {
+ 
+    const fileNode = await createRemoteFileNode({
+      url: node.content.blocks[8].data.url, // string that points to the URL of the image
+      parentNodeId: node.id, // id of the parent node of the fileNode you are going to create
+      createNode, // helper function in gatsby-node to generate the node
+      createNodeId, // helper function in gatsby-node to generate the node id
+      getCache,
+    })
+
+    // if the file was created, extend the node with "localFile"
+    if (fileNode) {
+      createNodeField({ node, name: "localFile", value: fileNode.id })
+    }
+  }   
+}
