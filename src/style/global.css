@@ -1,3 +1,5 @@
+
+@import 'flotiq-components-react-prefix/dist/index-including-tailwind.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

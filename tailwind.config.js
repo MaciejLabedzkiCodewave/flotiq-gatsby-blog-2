@@ -1,6 +1,7 @@
-module.exports = {
+module.exports = { 
+    important: true,
     content: [
-        './node_modules/flotiq-components-react/dist/**/*.{js,jsx,ts,tsx}',
+        './node_modules/flotiq-components-react/dist/**/*.{js,jsx,ts,tsx}', 
         './src/**/*.{js,jsx,ts,tsx}',
     ],
     theme: {
@@ -12,7 +13,7 @@ module.exports = {
                 xl: '1440px',
             },
             colors: {
-                primary: '#FBB03B',
+                primary: '#62FF00',
                 gray: '#7f7f7f',
                 'light-gray': '#fafafa',
             },
@@ -27,7 +28,7 @@ module.exports = {
         require('@tailwindcss/line-clamp'),
     ],
     presets: [
-        require('./node_modules/flotiq-components-react/dist/tailwind.preset'),
+        require('./node_modules/flotiq-components-react/dist/tailwind.preset'), 
     ],
     safelist: require('./node_modules/flotiq-components-react/dist/tailwind.safelist'),
 };

@@ -1,8 +1,12 @@
 import React from 'react';
 import { StaticImage } from "gatsby-plugin-image";
-import { Button, Header, Paragraph, PoweredByFlotiq } from 'flotiq-components-react';
+import { 
+    // Button,
+     Header, Paragraph, PoweredByFlotiq } from 'flotiq-components-react';
+import { Button } from 'flotiq-components-react-prefix'; 
 import SocialIcons from '../components/SocialIcons';
 import pjson from'../../package.json';
+
 
 const HomepageSidebar = ({
     headerText1, headerText2, headerText3, subheaderText, paragraphText, buttonLabel,
@@ -36,7 +40,7 @@ const HomepageSidebar = ({
                     label={buttonLabel}
                     size="lg"
                     rounded="none"
-                    additionalClasses={['w-fit mx-auto md:mx-0 py-5 lg:!px-14 mt-10']}
+                    additionalClasses={['w-fit mx-auto md:mx-0 py-5 lg:!px-14 mt-10 bg-primary text-white']}
                     onClick={() => window.open('mailto:hello@flotiq.com')}
                 />
             </div>
